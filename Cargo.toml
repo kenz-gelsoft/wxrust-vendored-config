@@ -1,8 +1,9 @@
 [package]
-name = "wxrust-vendored-config"
-version = "0.1.0"
+name = "wxrust-config"
+version = "0.0.1-alpha2"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+wx-x86_64-pc-windows-msvc = { git = "https://github.com/kenz-gelsoft/wx-x86_64-pc-windows-msvc", branch = "runtime_api" }
