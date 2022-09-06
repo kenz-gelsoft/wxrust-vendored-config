@@ -8,6 +8,9 @@ edition = "2021"
 [target.'cfg(target_env = "msvc")'.dependencies]
 wx-x86_64-pc-windows-msvc = { git = "https://github.com/kenz-gelsoft/wx-x86_64-pc-windows-msvc", branch = "runtime_api" }
 
+[target.'cfg(all(windows, target_env = "gnu"))'.dependencies]
+wx-x86_64-pc-windows-gnu = { git = "https://github.com/kenz-gelsoft/wx-x86_64-pc-windows-gnu", branch = "runtime_api" }
+
 [target.'cfg(target_os = "macos")'.dependencies]
 wx-universal-apple-darwin = { git = "https://github.com/kenz-gelsoft/wx-universal-apple-darwin", branch = "runtime_api" }
 
