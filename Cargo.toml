@@ -6,13 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [target.'cfg(target_env = "msvc")'.dependencies]
-wx-x86_64-pc-windows-msvc = { git = "https://github.com/kenz-gelsoft/wx-x86_64-pc-windows-msvc", branch = "runtime_api" }
+wx-x86_64-pc-windows-msvc = { git = "https://github.com/kenz-gelsoft/wx-x86_64-pc-windows-msvc" }
 
 [target.'cfg(all(windows, target_env = "gnu"))'.dependencies]
-wx-x86_64-pc-windows-gnu = { git = "https://github.com/kenz-gelsoft/wx-x86_64-pc-windows-gnu", branch = "runtime_api" }
+wx-x86_64-pc-windows-gnu = { git = "https://github.com/ancwrd1/wx-x86_64-pc-windows-gnu" }
 
 [target.'cfg(target_os = "macos")'.dependencies]
-wx-universal-apple-darwin = { git = "https://github.com/kenz-gelsoft/wx-universal-apple-darwin", branch = "runtime_api" }
+wx-universal-apple-darwin = { git = "https://github.com/ancwrd1/wx-universal-apple-darwin" }
 
 [features]
 vendored = []
