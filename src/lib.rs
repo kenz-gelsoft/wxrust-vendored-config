@@ -1,4 +1,5 @@
 use std::env;
+use std::process::Command;
 
 #[cfg(all(feature = "vendored", target_env = "msvc"))]
 pub fn wx_config(args: &[&str]) -> Vec<String> {
