@@ -1,19 +1,20 @@
 use std::env;
-use std::process::Command;
 
-#[cfg(all(feature = "vendored", target_env = "msvc"))]
+#[cfg(feature = "vendored")]
 pub fn wx_config(args: &[&str]) -> Vec<String> {
-    wx_x86_64_pc_windows_msvc::wx_config(args)
-}
-
-#[cfg(all(feature = "vendored", windows, target_env = "gnu"))]
-pub fn wx_config(args: &[&str]) -> Vec<String> {
-    wx_x86_64_pc_windows_gnu::wx_config(args)
-}
-
-#[cfg(all(feature = "vendored", target_os = "macos"))]
-pub fn wx_config(args: &[&str]) -> Vec<String> {
-    wx_universal_apple_darwin::wx_config(args)
+    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
+    if target_os.eq("windows") {
+        let target_env = env::var("CARGO_CFG_TARGET_ENV").unwrap();
+        if target_env.eq("msvc") {
+            wx_x86_64_pc_windows_msvc::wx_config(args)
+        } else {
+            wx_x86_64_pc_windows_gnu::wx_config(args)
+        }
+    } else if target_os.eq("macos") {
+        wx_universal_apple_darwin::wx_config(args)
+    } else {
+        Vec::new()
+    }
 }
 
 #[cfg(all(not(feature = "vendored"), not(windows)))]
