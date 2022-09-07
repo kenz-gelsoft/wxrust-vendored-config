@@ -1,5 +1,8 @@
 use std::env;
 
+#[cfg(all(not(feature = "vendored"), not(windows)))]
+use std::process::Command;
+
 #[cfg(feature = "vendored")]
 pub fn wx_config(args: &[&str]) -> Vec<String> {
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
